@@ -51,14 +51,20 @@ metadata {
                 attributeState "position", action:"setPosition"
             }
         }
-        valueTile("power", "device.power", decoration: "flat", width: 2, height: 2) {
-            state "power", label:'${currentValue}\nW', action:"refresh"
+        standardTile(name: "up", width: 2, height: 1, decoration: "flat") {
+            state "default", action:"open", icon:"https://raw.githubusercontent.com/Wattos/FIBARO-Official-SmartThings-Device-Handlers/icons/icons/up.png?v=1"
         }
-        valueTile("energy", "device.energy", decoration: "flat", width: 2, height: 2) {
-            state "energy", label:'${currentValue}\nkWh', action:"refresh"
+        valueTile("power", "device.power", decoration: "flat", width: 2, height: 1) {
+            state "power", label:'${currentValue}\nW', action:"refresh"
         }
         valueTile("reset", "device.energy", decoration: "flat", width: 2, height: 2) {
             state "reset", label:'reset\nkWh', action:"reset"
+        }
+        standardTile(name: "down", width: 2, height: 1, decoration: "flat") {
+            state "default", action:"close", icon:"https://raw.githubusercontent.com/Wattos/FIBARO-Official-SmartThings-Device-Handlers/icons/icons/down.png?v=1"
+        }
+        valueTile("energy", "device.energy", decoration: "flat", width: 2, height: 1) {
+            state "energy", label:'${currentValue}\nkWh', action:"refresh"
         }
         valueTile("calibrate", "device.calibrate", decoration: "flat", width: 2, height: 1) {
             state "calibrate", label:'Calibrate', action:"calibrate"
